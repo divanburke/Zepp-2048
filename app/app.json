@@ -5,8 +5,8 @@
     "appName": "2048",
     "appType": "app",
     "version": {
-      "code": 2,
-      "name": "1.0.0"
+      "code": 4,
+      "name": "1.0.2"
     },
     "icon": "icon.png",
     "vender": "Divan Burke",
@@ -23,7 +23,7 @@
     }
   },
   "targets": {
-    "common": {
+    "gt": {
       "module": {
         "page": {
           "pages": [
@@ -33,19 +33,14 @@
       },
       "platforms": [
         {
-          "name": "Amazfit Bip 6",
-          "deviceSource": 9765120
+          "st": "r",
+          "dw": 480
         },
         {
-          "name": "Amazfit Bip 6",
-          "deviceSource": 9765121
-        },
-        {
-          "name": "Amazfit Bip 6",
-          "deviceSource": 10158337
+          "st": "s",
+          "dw": 390
         }
-      ],
-      "designWidth": 390
+      ]
     }
   },
   "i18n": {
