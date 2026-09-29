@@ -65,9 +65,12 @@ let gameOverScore = null;
 let gameOverButton = null;
 
 function cellRect(row, col) {
+  const totalGridSize = BOARD.cell * 4 + BOARD.gap * 3;
+  const inset = (BOARD.size - totalGridSize) / 2;
+
   return {
-    x: BOARD.x + col * (BOARD.cell + BOARD.gap),
-    y: BOARD.y + row * (BOARD.cell + BOARD.gap)
+    x: BOARD.x + inset + col * (BOARD.cell + BOARD.gap),
+    y: BOARD.y + inset + row * (BOARD.cell + BOARD.gap)
   };
 }
 
