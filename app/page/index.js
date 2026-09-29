@@ -314,7 +314,7 @@ function animateTileMove(entry) {
     to.x,
     to.y,
     {
-      duration: 125,
+      duration: 210,
       autoDestroy: false
     }
   );
@@ -326,7 +326,7 @@ function animateTileMove(entry) {
     to.x,
     to.y,
     {
-      duration: 125,
+      duration: 210,
       autoDestroy: false
     }
   );
@@ -374,14 +374,14 @@ function animateMerge(merge) {
   const rect = cellRect(merge.row, merge.col);
 
   popIn(target.background, rect.x, rect.y, BOARD.cell, BOARD.cell, {
-    duration: 150,
-    scale: 0.86,
+    duration: 230,
+    scale: 0.72,
     autoDestroy: false
   });
 
   popIn(target.label, rect.x, rect.y, BOARD.cell, BOARD.cell, {
-    duration: 150,
-    scale: 0.86,
+    duration: 230,
+    scale: 0.72,
     autoDestroy: false
   });
 }
