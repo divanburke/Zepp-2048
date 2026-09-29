@@ -5,8 +5,8 @@
     "appName": "2048",
     "appType": "app",
     "version": {
-      "code": 2,
-      "name": "1.0.0"
+      "code": 3,
+      "name": "1.0.1"
     },
     "icon": "icon.png",
     "vender": "Divan Burke",
@@ -23,7 +23,7 @@
     }
   },
   "targets": {
-    "common": {
+    "bip-6": {
       "module": {
         "page": {
           "pages": [
