@@ -8,7 +8,7 @@
       "code": 4,
       "name": "1.0.2"
     },
-    "icon": "assets/common.s/icon.png",
+    "icon": "icon.png",
     "vender": "Divan Burke",
     "description": "A native animated 2048 game for Amazfit Bip 6."
   },
