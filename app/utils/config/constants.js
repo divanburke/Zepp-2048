@@ -26,17 +26,17 @@ export const COLORS = {
   overlay: 0x07090c,
   overlayText: 0xffffff,
   tile: {
-    2: 0x26342b,
-    4: 0x30453a,
-    8: 0x3b5948,
-    16: 0x476a50,
-    32: 0x557b59,
-    64: 0x669066,
-    128: 0x7ca774,
-    256: 0x93bc83,
-    512: 0xa9cf91,
-    1024: 0xc0e2a0,
-    2048: 0xd3f2ad
+    2: 0x1c2b22,
+    4: 0x24402e,
+    8: 0x2d5a38,
+    16: 0x397344,
+    32: 0x478f50,
+    64: 0x5aa95d,
+    128: 0x72c76b,
+    256: 0x8fdd7f,
+    512: 0xacef94,
+    1024: 0xc8f5a9,
+    2048: 0xe0ffc0
   },
   tileTextDark: 0x10150f
 };
