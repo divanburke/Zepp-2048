@@ -7,8 +7,8 @@ export const BOARD = {
   x: 24,
   y: 94,
   size: 342,
-  cell: 78,
-  gap: 10,
+  cell: 76,
+  gap: 12,
   radius: 26,
   tileRadius: 18
 };
