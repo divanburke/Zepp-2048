@@ -5,7 +5,7 @@ export const STORAGE = {
 
 export const BOARD = {
   x: 24,
-  y: 94,
+  y: 88,
   size: 342,
   padding: 18,
   cell: 63,
