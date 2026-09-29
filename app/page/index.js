@@ -53,7 +53,6 @@ let state = null;
 let bestScore = 0;
 let busy = false;
 
-let titleWidget = null;
 let scoreValueWidget = null;
 let bestValueWidget = null;
 let boardWidget = null;
@@ -63,6 +62,12 @@ let gameOverOverlay = null;
 let gameOverTitle = null;
 let gameOverScore = null;
 let gameOverButton = null;
+
+let restartOverlay = null;
+let restartTitle = null;
+let restartMessage = null;
+let restartCancelButton = null;
+let restartConfirmButton = null;
 
 function cellRect(row, col) {
   return {
@@ -281,6 +286,155 @@ function showGameOverOverlay() {
   });
 }
 
+function clearRestartConfirmation() {
+  if (!restartOverlay) {
+    return;
+  }
+
+  const widgets = [
+    restartOverlay,
+    restartTitle,
+    restartMessage,
+    restartCancelButton?.button,
+    restartCancelButton?.text,
+    restartConfirmButton?.button,
+    restartConfirmButton?.text
+  ];
+
+  for (const widget of widgets) {
+    if (widget) {
+      fadeOut(widget, {
+        duration: 100
+      });
+    }
+  }
+
+  restartOverlay = null;
+  restartTitle = null;
+  restartMessage = null;
+  restartCancelButton = null;
+  restartConfirmButton = null;
+}
+
+function showRestartConfirmation() {
+  if (restartOverlay || busy) {
+    return;
+  }
+
+  restartOverlay = card({
+    x: BOARD.x,
+    y: BOARD.y,
+    w: BOARD.size,
+    h: BOARD.size,
+    color: COLORS.overlay,
+    radius: BOARD.radius
+  });
+
+  restartTitle = text({
+    x: BOARD.x + 20,
+    y: BOARD.y + 92,
+    w: BOARD.size - 40,
+    h: 44,
+    value: 'RESTART?',
+    color: COLORS.overlayText,
+    size: 30,
+    alignH: align.CENTER_H,
+    alignV: align.CENTER_V
+  });
+
+  restartMessage = text({
+    x: BOARD.x + 30,
+    y: BOARD.y + 137,
+    w: BOARD.size - 60,
+    h: 44,
+    value: 'Your current game will be lost.',
+    color: COLORS.muted,
+    size: 15,
+    alignH: align.CENTER_H,
+    alignV: align.CENTER_V
+  });
+
+  restartCancelButton = pillAligned({
+    x: BOARD.x + 38,
+    y: BOARD.y + 196,
+    w: 112,
+    h: 46,
+    text: 'CANCEL',
+    textColor: COLORS.text,
+    textSize: 15,
+    normalColor: COLORS.surface,
+    pressColor: COLORS.emptyTile,
+    onClick: clearRestartConfirmation
+  });
+
+  restartConfirmButton = pillAligned({
+    x: BOARD.x + 162,
+    y: BOARD.y + 196,
+    w: 142,
+    h: 46,
+    text: 'RESTART',
+    textColor: COLORS.background,
+    textSize: 15,
+    normalColor: COLORS.accent,
+    pressColor: 0x78b97f,
+    onClick: () => {
+      clearRestartConfirmation();
+      startNewGame();
+    }
+  });
+
+  const widgets = [
+    restartOverlay,
+    restartTitle,
+    restartMessage,
+    restartCancelButton.button,
+    restartCancelButton.text,
+    restartConfirmButton.button,
+    restartConfirmButton.text
+  ];
+
+  for (const widget of widgets) {
+    widget.setProperty(prop.MORE, {
+      alpha: 0
+    });
+  }
+
+  fadeIn(restartOverlay, {
+    duration: 140,
+    autoDestroy: false
+  });
+
+  fadeIn(restartTitle, {
+    duration: 180,
+    autoDestroy: false
+  });
+
+  fadeIn(restartMessage, {
+    duration: 220,
+    autoDestroy: false
+  });
+
+  fadeIn(restartCancelButton.button, {
+    duration: 240,
+    autoDestroy: false
+  });
+
+  fadeIn(restartCancelButton.text, {
+    duration: 240,
+    autoDestroy: false
+  });
+
+  fadeIn(restartConfirmButton.button, {
+    duration: 260,
+    autoDestroy: false
+  });
+
+  fadeIn(restartConfirmButton.text, {
+    duration: 260,
+    autoDestroy: false
+  });
+}
+
 function renderScore(animate = false) {
   updateWidgetText(scoreValueWidget, state.score);
   updateWidgetText(bestValueWidget, bestScore);
@@ -388,7 +542,6 @@ function animateMerge(merge) {
 
 function launchShell() {
   const shellWidgets = [
-    titleWidget,
     scoreValueWidget,
     bestValueWidget,
     boardWidget,
@@ -401,12 +554,6 @@ function launchShell() {
       alpha: 0
     });
   }
-
-  slideInTop(titleWidget, 11, {
-    duration: 320,
-    distance: 20,
-    autoDestroy: false
-  });
 
   fadeIn(scoreValueWidget, {
     duration: 240,
@@ -534,18 +681,6 @@ Page(
         radius: 0
       });
 
-      titleWidget = text({
-        x: 24,
-        y: 11,
-        w: 100,
-        h: 34,
-        value: '2048',
-        color: COLORS.text,
-        size: 31,
-        alignH: align.LEFT,
-        alignV: align.CENTER_V
-      });
-
       card({
         x: 133,
         y: 48,
@@ -622,7 +757,7 @@ Page(
         textSize: 12,
         normalColor: COLORS.accent,
         pressColor: 0x78b97f,
-        onClick: startNewGame
+        onClick: showRestartConfirmation
       });
 
       boardWidget = card({
