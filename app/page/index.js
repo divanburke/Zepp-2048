@@ -1,4 +1,11 @@
 import { BasePage } from '@zeppos/zml/base-page';
+import {
+  onGesture,
+  GESTURE_UP,
+  GESTURE_DOWN,
+  GESTURE_LEFT,
+  GESTURE_RIGHT
+} from '@zos/interaction';
 
 import { LAYOUT } from 'zosLoader:./index.[pf].layout.js';
 
@@ -9,13 +16,8 @@ import {
   pillAligned,
   prop,
   align,
-  onSwipe,
   onBackKey,
   goBack,
-  GESTURE_UP,
-  GESTURE_DOWN,
-  GESTURE_LEFT,
-  GESTURE_RIGHT,
   fadeIn,
   fadeOut,
   slideInTop,
@@ -635,7 +637,8 @@ Page(
       renderInitialBoard();
       launchShell();
 
-      onSwipe((gesture) => {
+      onGesture({
+        callback: (gesture) => {
         if (gesture === GESTURE_UP) {
           handleMove(DIRECTIONS_EXPORT.UP);
         } else if (gesture === GESTURE_DOWN) {
@@ -646,7 +649,8 @@ Page(
           handleMove(DIRECTIONS_EXPORT.RIGHT);
         }
 
-        return true;
+          return true;
+        }
       });
 
       onBackKey(() => {
