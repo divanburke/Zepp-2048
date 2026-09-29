@@ -1,17 +1,16 @@
 {
-  "name": "helloworld",
+  "name": "zepp-2048",
   "version": "1.0.0",
-  "description": "",
+  "description": "A native animated 2048 game for Amazfit Bip 6.",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "scripts": {},
+  "author": "Divan Burke",
+  "license": "MIT",
   "devDependencies": {
     "@zeppos/device-types": "^3.0.0"
   },
   "dependencies": {
-    "@zeppos/zml": "^0.0.38"
+    "@zeppos/zml": "^0.0.38",
+    "zeppcore": "github:divanburke/ZeppCore#main"
   }
 }

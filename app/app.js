@@ -1,10 +1,15 @@
-App({
-  globalData: {},
-  onCreate(options) {
-    console.log("app on create invoke");
-  },
+import { BaseApp } from '@zeppos/zml/base-app';
 
-  onDestroy(options) {
-    console.log("app on destroy invoke");
-  },
-});
+App(
+  BaseApp({
+    globalData: {},
+
+    onCreate(options) {
+      console.log('2048 app onCreate');
+    },
+
+    onDestroy(options) {
+      console.log('2048 app onDestroy');
+    }
+  })
+);
