@@ -7,6 +7,7 @@ export const BOARD = {
   x: 24,
   y: 94,
   size: 342,
+  padding: 18,
   cell: 72,
   gap: 18,
   radius: 26,
