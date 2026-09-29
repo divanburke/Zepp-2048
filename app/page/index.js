@@ -440,7 +440,7 @@ function renderScore(animate = false) {
   updateWidgetText(bestValueWidget, bestScore);
 
   if (animate) {
-    popIn(scoreValueWidget, 133, 61, 90, 20, {
+    popIn(scoreValueWidget, 138, 38, 82, 26, {
       duration: 130,
       scale: 0.86,
       autoDestroy: false
@@ -682,27 +682,27 @@ Page(
       });
 
       card({
-        x: 133,
-        y: 48,
-        w: 90,
-        h: 37,
+        x: 138,
+        y: 20,
+        w: 82,
+        h: 52,
         color: COLORS.surface,
         radius: 16
       });
 
       card({
-        x: 229,
-        y: 48,
-        w: 90,
-        h: 37,
+        x: 228,
+        y: 20,
+        w: 82,
+        h: 52,
         color: COLORS.surface,
         radius: 16
       });
 
       text({
-        x: 133,
-        y: 50,
-        w: 90,
+        x: 138,
+        y: 24,
+        w: 82,
         h: 12,
         value: 'SCORE',
         color: COLORS.muted,
@@ -712,9 +712,9 @@ Page(
       });
 
       text({
-        x: 229,
-        y: 50,
-        w: 90,
+        x: 228,
+        y: 24,
+        w: 82,
         h: 12,
         value: 'BEST',
         color: COLORS.muted,
@@ -724,10 +724,10 @@ Page(
       });
 
       scoreValueWidget = text({
-        x: 133,
-        y: 61,
-        w: 90,
-        h: 20,
+        x: 138,
+        y: 38,
+        w: 82,
+        h: 26,
         value: state.score,
         color: COLORS.text,
         size: 18,
@@ -736,10 +736,10 @@ Page(
       });
 
       bestValueWidget = text({
-        x: 229,
-        y: 61,
-        w: 90,
-        h: 20,
+        x: 228,
+        y: 38,
+        w: 82,
+        h: 26,
         value: bestScore,
         color: COLORS.text,
         size: 18,
@@ -749,12 +749,12 @@ Page(
 
       newGameButton = pillAligned({
         x: 24,
-        y: 48,
-        w: 100,
-        h: 37,
+        y: 20,
+        w: 104,
+        h: 52,
         text: 'NEW GAME',
         textColor: COLORS.background,
-        textSize: 12,
+        textSize: 13,
         normalColor: COLORS.accent,
         pressColor: 0x78b97f,
         onClick: showRestartConfirmation
