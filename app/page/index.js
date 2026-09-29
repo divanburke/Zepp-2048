@@ -266,7 +266,7 @@ function showGameOverOverlay() {
   });
 
   fadeIn(gameOverScore, {
-    duration: 210,
+    duration: 300,
     autoDestroy: false
   });
 
