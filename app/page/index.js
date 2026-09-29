@@ -682,27 +682,18 @@ Page(
       });
 
       card({
-        x: 138,
+        x: 24,
         y: 20,
-        w: 82,
-        h: 52,
-        color: COLORS.surface,
-        radius: 26
-      });
-
-      card({
-        x: 228,
-        y: 20,
-        w: 82,
+        w: 295,
         h: 52,
         color: COLORS.surface,
         radius: 26
       });
 
       text({
-        x: 138,
+        x: 128,
         y: 24,
-        w: 82,
+        w: 92,
         h: 12,
         value: 'SCORE',
         color: COLORS.muted,
@@ -712,9 +703,9 @@ Page(
       });
 
       text({
-        x: 228,
+        x: 220,
         y: 24,
-        w: 82,
+        w: 92,
         h: 12,
         value: 'BEST',
         color: COLORS.muted,
@@ -724,9 +715,9 @@ Page(
       });
 
       scoreValueWidget = text({
-        x: 138,
+        x: 128,
         y: 38,
-        w: 82,
+        w: 92,
         h: 26,
         value: state.score,
         color: COLORS.text,
@@ -736,9 +727,9 @@ Page(
       });
 
       bestValueWidget = text({
-        x: 228,
+        x: 220,
         y: 38,
-        w: 82,
+        w: 92,
         h: 26,
         value: bestScore,
         color: COLORS.text,
