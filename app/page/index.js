@@ -649,8 +649,10 @@ Page(
           handleMove(DIRECTIONS_EXPORT.RIGHT);
         }
 
-          return true;
-        }
+        // Always consume the gesture so a right-edge swipe cannot trigger
+        // the default page-back behavior.
+        return true;
+      }
       });
 
       onBackKey(() => {
