@@ -687,7 +687,7 @@ Page(
         w: 82,
         h: 52,
         color: COLORS.surface,
-        radius: 16
+        radius: 26
       });
 
       card({
@@ -696,7 +696,7 @@ Page(
         w: 82,
         h: 52,
         color: COLORS.surface,
-        radius: 16
+        radius: 26
       });
 
       text({
