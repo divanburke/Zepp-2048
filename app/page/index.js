@@ -467,7 +467,7 @@ function animateTileMove(entry) {
     to.x,
     to.y,
     {
-      duration: 210,
+      duration: 420,
       autoDestroy: false
     }
   );
@@ -479,7 +479,7 @@ function animateTileMove(entry) {
     to.x,
     to.y,
     {
-      duration: 210,
+      duration: 420,
       autoDestroy: false
     }
   );
