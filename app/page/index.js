@@ -122,7 +122,7 @@ function createTileView(tile, animate = true) {
     });
 
     popIn(background, rect.x, rect.y, BOARD.cell, BOARD.cell, {
-      duration: 180,
+      duration: 110,
       scale: 0.78,
       autoDestroy: false
     });
