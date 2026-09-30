@@ -786,8 +786,8 @@ Page(
           w: 202,
           h: 74,
           text: '',
-          color: 0x000000,
-          press_color: 0x000000,
+          color: COLORS.background,
+          press_color: COLORS.background,
           alpha: 0,
           click_func: () => handleMove(DIRECTIONS_EXPORT.UP)
         }),
@@ -797,8 +797,8 @@ Page(
           w: 202,
           h: 74,
           text: '',
-          color: 0x000000,
-          press_color: 0x000000,
+          color: COLORS.background,
+          press_color: COLORS.background,
           alpha: 0,
           click_func: () => handleMove(DIRECTIONS_EXPORT.DOWN)
         }),
@@ -808,8 +808,8 @@ Page(
           w: 74,
           h: 178,
           text: '',
-          color: 0x000000,
-          press_color: 0x000000,
+          color: COLORS.background,
+          press_color: COLORS.background,
           alpha: 0,
           click_func: () => handleMove(DIRECTIONS_EXPORT.LEFT)
         }),
@@ -819,12 +819,18 @@ Page(
           w: 74,
           h: 178,
           text: '',
-          color: 0x000000,
-          press_color: 0x000000,
+          color: COLORS.background,
+          press_color: COLORS.background,
           alpha: 0,
           click_func: () => handleMove(DIRECTIONS_EXPORT.RIGHT)
         })
       ];
+
+      for (const button of directionButtons) {
+        button.setProperty(hmUI.prop.PRESS_COLOR, COLORS.background);
+        button.setProperty(hmUI.prop.COLOR, COLORS.background);
+        button.setProperty(hmUI.prop.ALPHA, 0);
+      }
 
       onBackKey(() => {
         goBack();
