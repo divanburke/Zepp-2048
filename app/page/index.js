@@ -1,11 +1,5 @@
 import { BasePage } from '@zeppos/zml/base-page';
-import {
-  onGesture,
-  GESTURE_UP,
-  GESTURE_DOWN,
-  GESTURE_LEFT,
-  GESTURE_RIGHT
-} from '@zos/interaction';
+import * as hmUI from '@zos/ui';
 
 import { LAYOUT } from 'zosLoader:./index.[pf].layout.js';
 
@@ -56,6 +50,8 @@ let scoreValueWidget = null;
 let bestValueWidget = null;
 let boardWidget = null;
 let newGameButton = null;
+
+let directionButtons = [];
 
 let gameOverOverlay = null;
 let gameOverTitle = null;
@@ -783,23 +779,52 @@ Page(
       renderInitialBoard();
       launchShell();
 
-      onGesture({
-        callback: (gesture) => {
-        if (gesture === GESTURE_UP) {
-          handleMove(DIRECTIONS_EXPORT.UP);
-        } else if (gesture === GESTURE_DOWN) {
-          handleMove(DIRECTIONS_EXPORT.DOWN);
-        } else if (gesture === GESTURE_LEFT) {
-          handleMove(DIRECTIONS_EXPORT.LEFT);
-        } else if (gesture === GESTURE_RIGHT) {
-          handleMove(DIRECTIONS_EXPORT.RIGHT);
-        }
-
-        // Always consume the gesture so a right-edge swipe cannot trigger
-        // the default page-back behavior.
-        return true;
-      }
-      });
+      directionButtons = [
+        hmUI.createWidget(hmUI.widget.BUTTON, {
+          x: 94,
+          y: 96,
+          w: 202,
+          h: 74,
+          text: '',
+          color: 0x000000,
+          press_color: 0x000000,
+          alpha: 0,
+          click_func: () => handleMove(DIRECTIONS_EXPORT.UP)
+        }),
+        hmUI.createWidget(hmUI.widget.BUTTON, {
+          x: 94,
+          y: 348,
+          w: 202,
+          h: 74,
+          text: '',
+          color: 0x000000,
+          press_color: 0x000000,
+          alpha: 0,
+          click_func: () => handleMove(DIRECTIONS_EXPORT.DOWN)
+        }),
+        hmUI.createWidget(hmUI.widget.BUTTON, {
+          x: 40,
+          y: 170,
+          w: 74,
+          h: 178,
+          text: '',
+          color: 0x000000,
+          press_color: 0x000000,
+          alpha: 0,
+          click_func: () => handleMove(DIRECTIONS_EXPORT.LEFT)
+        }),
+        hmUI.createWidget(hmUI.widget.BUTTON, {
+          x: 276,
+          y: 170,
+          w: 74,
+          h: 178,
+          text: '',
+          color: 0x000000,
+          press_color: 0x000000,
+          alpha: 0,
+          click_func: () => handleMove(DIRECTIONS_EXPORT.RIGHT)
+        })
+      ];
 
       onBackKey(() => {
         goBack();
