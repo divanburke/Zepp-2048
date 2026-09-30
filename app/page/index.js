@@ -649,7 +649,7 @@ function handleMove(direction) {
     }
 
     busy = false;
-  }, 135);
+  }, 430);
 }
 
 Page(
