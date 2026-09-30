@@ -25,8 +25,7 @@ import {
   move as animateMove,
   saveObject,
   loadObject,
-  vibrateLight,
-  vibrateStrong
+  vibrateLight
 } from 'zeppcore';
 
 import {
@@ -639,12 +638,6 @@ function handleMove(direction) {
 
   saveObject(STORAGE.GAME, serializeGame(state));
   saveObject(STORAGE.BEST, bestScore);
-
-  if (result.wonNow) {
-    vibrateStrong();
-  } else {
-    vibrateLight();
-  }
 
   setTimeout(() => {
     if (result.spawned) {
